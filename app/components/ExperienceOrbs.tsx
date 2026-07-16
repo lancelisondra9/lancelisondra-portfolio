@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import digikeyLogo from "./logos/digikey.png";
+import adpipeLogo from "./logos/adpipe.webp";
+import zieglercatLogo from "./logos/zieglercat.png";
 
 type Job = {
   company: string;
@@ -12,10 +15,10 @@ type Job = {
   bullets: string[];
 };
 
-const logoImages: Record<string, string> = {
-  DigiKey: "/images/logos/digikey.png",
-  AdPipe: "/images/logos/adpipe.webp",
-  ZieglerCat: "/images/logos/zieglercat.png",
+const logoImages: Record<string, StaticImageData> = {
+  DigiKey: digikeyLogo,
+  AdPipe: adpipeLogo,
+  ZieglerCat: zieglercatLogo,
 };
 
 export default function ExperienceOrbs({ jobs }: { jobs: Job[] }) {
@@ -52,8 +55,6 @@ export default function ExperienceOrbs({ jobs }: { jobs: Job[] }) {
               <Image
                 src={logoSrc}
                 alt={`${job.company} logo`}
-                width={56}
-                height={56}
                 className="h-full w-full object-contain"
               />
             ) : (
